@@ -1,6 +1,6 @@
 # Nobel Prize Checker
 
-Noble Prize Checker is simple Python script for Intel Devops Intern's recruitment process. 
+Noble Prize Checker is simple Python script for recruitment process. 
 
 ## Features
 
