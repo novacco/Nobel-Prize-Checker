@@ -11,15 +11,12 @@ def checker():
     min2_list = []
     total_number = 0
     for x, y in df.iterrows():
-        flag = False
-        for v in df.prizes[x]:
-            if v['category'] == 'economics':
-                flag = True
-                break
         if pd.notna(df.surname[x]) and pd.notna(df.firstname[x]):
+            for v in df.prizes[x]:
+                if v['category'] == 'economics':
+                    economics_list.append({'firstname': df.firstname[x], 'surname': df.surname[x]})
+                    break
             total_number += 1
-            if flag:
-                economics_list.append({'firstname': df.firstname[x], 'surname': df.surname[x], 'value_of_prizes': len(df.prizes[x])})
             if len(df.prizes[x]) > 1:
                 min2_list.append({'firstname': df.firstname[x], 'surname': df.surname[x], 'value_of_prizes': len(df.prizes[x])})
 
@@ -32,7 +29,7 @@ def checker():
     for x in economics_list:
         print(x['surname'], x['firstname'])
 
-    print("\nPeople who have won more than one Nobel Prize :")
+    print("\nPeople who have won more than one Nobel Prize:")
     for x in min2_list:
         print(x['surname'], x['firstname'])
 
